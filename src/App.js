@@ -20,19 +20,6 @@ function App() {
             </div>
           );
         })}
-{/*
-        {congratulations.length % 3 === 2 ?
-          <div className="placeholder"></div> :
-          null
-        }
-
-        {congratulations.length % 3 === 1 ?
-          <>
-            <div className="placeholder"></div>
-            <div className="placeholder"></div>
-          </> :
-          null
-        } */}
       </div>
     </div>
   );

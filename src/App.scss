@@ -89,7 +89,7 @@ $header-height: 60px;
     }
 
     .item-container:nth-child(7n+1) {
-      animation: first-bubble 5s 3.5s linear infinite, droping 3s 0.5s ease-in-out;
+      animation: second-bubble 5s 3.5s linear infinite, droping 3s 0.5s ease-in-out;
     }
 
     .item-container:nth-child(7n+2) {
@@ -97,7 +97,7 @@ $header-height: 60px;
     }
 
     .item-container:nth-child(7n+3) {
-      animation: first-bubble 5s 3.8s linear infinite, droping 3s 0.8s ease-in-out;
+      animation: second-bubble 5s 3.8s linear infinite, droping 3s 0.8s ease-in-out;
     }
 
     .item-container:nth-child(7n+4) {
@@ -105,7 +105,7 @@ $header-height: 60px;
     }
 
     .item-container:nth-child(7n+5) {
-      animation: first-bubble 5s 4.8s linear infinite, droping 3s 1.8s ease-in-out;
+      animation: second-bubble 5s 4.8s linear infinite, droping 3s 1.8s ease-in-out;
     }
 
     .item-container:nth-child(7n+6) {
@@ -145,6 +145,28 @@ $header-height: 60px;
 
   75% {
     transform: translateX(0px) translateY(3px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+@keyframes second-bubble {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+
+  25% {
+    transform: translateX(-2px) translateY(-3px);
+  }
+
+  50% {
+    transform: translateX(3px) translateY(4px);
+  }
+
+  75% {
+    transform: translateX(2px) translateY(1px);
   }
 
   100% {
