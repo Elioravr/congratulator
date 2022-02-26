@@ -22,12 +22,12 @@ function App() {
       <div className="header">אודי בן 55</div>
       <div className="main-picture-container">
         <div className="main-text">{mainText}</div>
-        <div className="main-picture border-with-shadow" style={{backgroundImage: `url(${mainPicture})`}}></div>
+        <div className="main-picture border-with-shadow" style={{backgroundImage: `url(${process.env.PUBLIC_URL + mainPicture})`}}></div>
       </div>
       <div className="list-container">
         {congratulations.map((item, index) => {
           return (
-            <div key={index} onClick={createHandleItemClick(item)} className={`item-container border-with-shadow ${item.size ? `size-${item.size}` : ''}`} style={{backgroundImage: `url(${item.imageUrl})`}}>
+            <div key={index} onClick={createHandleItemClick(item)} className={`item-container border-with-shadow ${item.size ? `size-${item.size}` : ''}`} style={{backgroundImage: `url(${process.env.PUBLIC_URL + item.imageUrl})`, backgroundPosition: item.backgroundPosition}}>
               {item.writer}
             </div>
           );
@@ -39,19 +39,21 @@ function App() {
         {selectedCongrats && (
           <>
             <div className="hide-content-from-scroll"></div>
-            <div className="writer-header border-with-shadow" style={{backgroundImage: `url(${selectedCongrats.imageUrl})`}}>
+            <div className="writer-header border-with-shadow" style={{backgroundImage: `url(${process.env.PUBLIC_URL + selectedCongrats.imageUrl})`, backgroundPosition: selectedCongrats.backgroundPosition}}>
               {`בהמון אהבה, מ${selectedCongrats.writer}`}
             </div>
-            {selectedCongrats.title && (
-              <div className="title">
-                {selectedCongrats.title}
-              </div>
-            )}
-            {selectedCongrats.content && (
-              <div className="content">
-                {selectedCongrats.content}
-              </div>
-            )}
+            <div className="content-container">
+              {selectedCongrats.title && (
+                <div className="title">
+                  {selectedCongrats.title}
+                </div>
+              )}
+              {selectedCongrats.content && (
+                <div className="content">
+                  {selectedCongrats.content.split('\n').map(part => <div className="line">{part}</div>)}
+                </div>
+              )}
+            </div>
             {/* <div className="hide-content-from-scroll bottom"></div> */}
           </>)
         }
